@@ -30,5 +30,34 @@ What is the value of the first triangle number to have over one hundred divisors
     
     */
     
+    public static int countFactors(int f)
+	{
+		int factors = 0;
+ 
+		for (int i = 1; i <= Math.sqrt(f); i++)
+		{
+			if (f % i == 0)
+				factors += 2;
+		}
+ 
+		return factors;
+	}
+    
+    public static void main(String[] args) {
+        int iter = 1;
+		int size = 1;
+		int NumFactors = 0;
+ 
+		while (NumFactors <= 100)
+		{
+			NumFactors = countFactors(size);
+			iter++;
+			size += iter;
+		}
+ 
+		System.out.println(size-iter);
+        
+    }
+    
     
 }
